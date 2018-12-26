@@ -1,10 +1,10 @@
 package Joni.Motor.engine;
 
 public class PantallaFactory {
-	private final Motor joc;
+	private final Motor motor;
 	private Pantalla pantalla;
-	public PantallaFactory(Motor joc){
-		this.joc=joc;
+	public PantallaFactory(Motor motor){
+		this.motor=motor;
 	}
 	
 	public void showPantalla(Pantalla pantalla){
@@ -14,5 +14,9 @@ public class PantallaFactory {
 	
 	public Pantalla getCurrentPantalla(){
 		return this.pantalla;
+	}
+	
+	public Motor getMotor(){
+		return motor;
 	}
 }
