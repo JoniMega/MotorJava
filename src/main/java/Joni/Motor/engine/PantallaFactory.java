@@ -1,9 +1,9 @@
 package Joni.Motor.engine;
 
 public class PantallaFactory {
-	private final Joc joc;
+	private final Motor joc;
 	private Pantalla pantalla;
-	public PantallaFactory(Joc joc){
+	public PantallaFactory(Motor joc){
 		this.joc=joc;
 	}
 	

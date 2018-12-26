@@ -2,14 +2,14 @@ package Joni.Motor.engine;
 
 import javax.swing.JFrame;
 
-public class Joc {
+public class Motor {
 	private final JFrame finestra = new JFrame();
 	private final PantallaFactory pantallaFactory;
-	private final Engine motor;
+	private final MotorThread exe;
 	private final TeclatListener teclatListener;
 	private final RatoliListener ratorliListener;
 	
-	public Joc (int finestraX,int finestraY, String nom){
+	public Motor (int finestraX,int finestraY, String nom){
 		finestra.setSize(finestraX,finestraY);
 		finestra.setResizable(false);
 		finestra.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -18,15 +18,15 @@ public class Joc {
 		finestra.setTitle(nom);
 		finestra.setVisible(true);
 		pantallaFactory=new PantallaFactory(this);
-		motor=new Engine(this);
+		exe=new MotorThread(this);
 		teclatListener=new TeclatListener();
 		ratorliListener=new RatoliListener();
 		
-		finestra.add(this.motor);
+		finestra.add(this.exe);
 		finestra.addKeyListener(this.teclatListener);
 		finestra.addMouseListener(this.ratorliListener);
 		
-		new Thread(motor).start();
+		new Thread(exe).start();
 	}
 	
 	public TeclatListener getTeclatListener(){
